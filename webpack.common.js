@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -18,6 +19,11 @@ module.exports = {
       filename: 'index.html',
       template: 'src/pug/index.pug',
       chunks: ['app']
+    }),
+    new MiniCSSExtractPlugin({
+      publicPath: '/',
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[id].css'
     })
   ],
   module: {
@@ -30,25 +36,15 @@ module.exports = {
       {
         test: /\.pug$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'pug-loader'
-          }
-        ]
+        loader: ['pug-loader'],
       },
       {
-        // 対象となるファイルの拡張子
-        test: /\.styl$/,
+        test: /\.s[ac]ss$/i,
         use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'stylus-loader'
-          }
+          MiniCSSExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
         ]
       }
     ]
