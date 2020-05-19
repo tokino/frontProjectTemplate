@@ -25,17 +25,7 @@ module.exports = {
       {
         test: /\.ts/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          },
-          {
-            loader: 'ts-loader'
-          }
-        ]
+        loader: ['babel-loader', 'ts-loader'],
       },
       {
         test: /\.pug$/,
