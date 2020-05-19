@@ -4,7 +4,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    'app': ['./src/ts/index.ts']
+    'app': ['./src/ts/index.tsx']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
