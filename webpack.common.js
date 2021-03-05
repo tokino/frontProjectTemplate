@@ -21,7 +21,6 @@ module.exports = {
       chunks: ['app']
     }),
     new MiniCSSExtractPlugin({
-      publicPath: '/',
       filename: 'css/[name].css',
       chunkFilename: 'css/[id].css'
     })
@@ -31,17 +30,23 @@ module.exports = {
       {
         test: /\.ts/,
         exclude: /node_modules/,
-        loader: ['babel-loader', 'ts-loader'],
+        use: ['babel-loader', 'ts-loader'],
       },
       {
         test: /\.pug$/,
         exclude: /node_modules/,
-        loader: ['pug-loader'],
+        use: ['pug-loader'],
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
-          MiniCSSExtractPlugin.loader,
+          {
+            loader: MiniCSSExtractPlugin.loader,
+            options: {
+              publicPath: '/'
+            },
+
+          },
           'css-loader',
           'postcss-loader',
           'sass-loader',
