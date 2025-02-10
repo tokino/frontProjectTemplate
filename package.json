@@ -24,7 +24,7 @@
     "postcss-loader": "^8.1.1",
     "pug": "^3.0.3",
     "pug-loader": "github:tokino/pug-loader",
-    "sass": "^1.83.4",
+    "sass": "^1.84.0",
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.2",
