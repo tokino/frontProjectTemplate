@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "dev": "webpack-cli serve --config webpack.dev.js"
+    "dev": "webpack-cli serve --config webpack.dev.js",
+    "lint": "pnpm exec prettier . --check",
+    "lint:fix": "pnpm exec prettier . --write"
   },
   "author": "Tomohiro_Kino",
   "license": "MIT",

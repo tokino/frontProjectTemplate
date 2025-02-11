@@ -1,0 +1,5 @@
+pnpm-lock.yaml
+.github/dependabot.yml
+.github/workflows/auto-merge.yaml
+.prettierrc
+tsconfig.json
